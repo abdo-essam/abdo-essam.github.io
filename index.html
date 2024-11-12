@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdo Essam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/95e4c26e1d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- --------header----------- -->
+    <header class="header">
+        <a href="" class="logo"><span>Abdo</span> Essam</a>
+
+        <nav class="nav-bar">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact Me</a>
+            <a class="down-btn" title="Download my resume"
+                href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL">
+                Resume
+                <i class="fa-solid fa-download"></i>
+            </a>
+        </nav>
+
+        <div class="menu-icon" id="menu-icon" onclick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- --------side menu for small screens----------- -->
+    <nav class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn" onclick="closeMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About Me</a>
+        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="#contact" onclick="closeMenu()">Contact Me</a>
+        <a class="down-btn" title="Download my resume" onclick="closeMenu()"
+            href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL">
+            Resume
+            <i class="fa-solid fa-download"></i>
+        </a>
+    </nav>
+
+    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+
+
+    <!-- --------home----------- -->
+    <section id="home">
+        <div class="container">
+            <div class="home-text">
+                <h1>Hi , I'm<br><span>Abdo Essam</span></h1>
+                <p>I am a dedicated and detail-oriented Mobile App Developer with experience in Android Native and Flutter development, seeking opportunities to contribute and develop innovative applications with my problem-solving skills, passion, and commitment to deliver user-friendly software solutions.</p>
+
+                <div class="social-icons">
+                    <a target="_blank" title="Send an email" href="mailto:abdo-essam@hotmail.com"><i
+                            class="fa-regular fa-envelope"></i></a>
+                    <a target="_blank" title="Linkedin" href="https://www.linkedin.com/in/abdo-essam"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a target="_blank" title="GitHub" href="https://github.com/abdo-essam"><i
+                            class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <a href="#portfolio" class="btn cta-btn">
+                Discover My Projects<i class="fa-solid fa-angle-down"></i>
+            </a>
+
+            <div class="stars"></div>
+        </div>
+    </section>
+
+
+
+    <!-- --------about----------- -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-col-1">
+                    <img src="images/user.jpg">
+                </div>
+
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am a dedicated and detail-oriented Native Android Developer with over 2 years of experience
+                        in Kotlin and crafting mobile applications, seeking opportunities to contribute and develop
+                        innovative applications with my problem-solving skills, passion, and commitment to deliver
+                        user-friendly software solutions.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link">Skills</p>
+                        <p class="tab-links">Experience</p>
+                        <p class="tab-links">Education</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming Languages</span><br>Kotlin, Dart, Java, C++, Python, JavaScript</li>
+                            <li><span>Mobile Development</span><br>Android SDK, Jetpack Compose, Firebase, Clean Architecture, MVVM, Dependency Injection, Flutter</li>
+                            <li><span>Tools & IDEs</span><br>Android Studio, Git & GitHub, IntelliJ IDEA, VS Code, Postman, Figma, Adobe XD</li>
+                            <li><span>Soft Skills</span><br>Teamwork, Problem-Solving, Adaptability, Communication</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Sept 2024</span><br>Android Development (Scholarship)  with Orange Digital Center</li>
+                            <li><span> July 2019 – Jan 2020 </span><br>Android Development (Diploma) in Reload Academy</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Sep 2018 - Jun 2022</span><br>Cairo University<br>Faculty of Computers and Artificial Intelligence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- --------portfolio----------- -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/projects/Ecommerce.png">
+                    <div class="layer">
+                        <h3>Fruits App</h3>
+                        <p>Ecommerce UI Fruits Flutter App.</p>
+                        <a target="_blank" href="https://github.com/abdo-essam/EcommerceUiFruitsApp"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/Quiz.png">
+                    <div class="layer">
+                        <h3>Cloud Quizzer</h3>
+                        <p>Cloud Quizzer is a Flutter App designed to help users prepare for the cloud exams.
+                        </p>
+                        <a target="_blank" href="https://github.com/abdo-essam/Cloud_Quizzer_App"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/Notes.png">
+                    <div class="layer">
+                        <h3>Notes App</h3>
+                        <p>Notes is a nimble note-taking application crafted using Kotlin and Android Architecture Components.</p>
+                        <a target="_blank"
+                            href="https://github.com/abdo-essam/Notes"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/Wallpapers.png">
+                    <div class="layer">
+                        <h3>Wallpapers App</h3>
+                        <p>It&apos;s an application built purely with Kotlin and Android Architecture Components.</p>
+                        <a target="_blank"
+                            href="https://github.com/abdo-essam/Wallpapers"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/Calculator.png">
+                    <div class="layer">
+                        <h3>Calculator App</h3>
+                        <p>Simple Android Native App.</p>
+                        <a target="_blank" href="https://github.com/abdo-essam/CalculatorApp"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/stopwatch.jpg">
+                    <div class="layer">
+                        <h3>StopWatch App</h3>
+                        <p>Simple Android Native App using Jetpack Compose.</p>
+                        <a target="_blank" href="https://github.com/abdo-essam/StopwatchApp"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="images/projects/todolist.jpg">
+                    <div class="layer">
+                        <h3>TODO List App</h3>
+                        <p>Simple Android Native App.</p>
+                        <a target="_blank" href="https://github.com/abdo-essam/ToDoListApp"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn see-more">See More<i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+    </section>
+
+
+<!-- --------contact----------- -->
+<section id="contact" class="section">
+    <div class="container">
+        <h1 class="sub-title">Contact Me</h1>
+
+        <div class="contact-info">
+            <p><i class="fa-regular fa-envelope"></i> Email:  <a href="mailto:abdo-essam@hotmail.com">abdo-essam@hotmail.com</a></p>
+            <p><i class="fa-brands fa-linkedin"></i> LinkedIn:  <a href="https://www.linkedin.com/in/abdo-essam" target="_blank">linkedin.com/in/abdo-essam</a></p>
+            <p><i class="fa-solid fa-phone"></i> Phone:  <a href="tel:+1234567890">+20 10010 76035</a></p>
+            <p><i class="fa-brands fa-github"></i> GitHub:  <a href="https://github.com/abdo-essam" target="_blank">github.com/abdo-essam</a></p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- --------copy right----------- -->
+    <footer>
+        <p class="copyright">Copyright &copy; <a href="https://www.linkedin.com/in/abdosharaf" target="_blank">Abdo
+                Essam</a> 2024. All Rights Reserved.</p>
+    </footer>
+
+
+
+    <!-- --------scripts----------- -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
