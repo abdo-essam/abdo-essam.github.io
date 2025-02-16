@@ -138,3 +138,26 @@ let observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll(".section").forEach(section => {
     observer.observe(section);
 });
+
+const scrollBtn = document.querySelector(".scroll-top");
+
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+        scrollBtn.classList.add("show");
+    } else {
+        scrollBtn.classList.remove("show");
+    }
+});
+
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    loader.style.opacity = '0';
+    setTimeout(() => {
+        loader.style.display = 'none';
+    }, 500);
+});
