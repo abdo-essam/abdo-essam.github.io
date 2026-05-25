@@ -159,3 +159,50 @@ const navObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => navObserver.observe(s));
+
+/* ============ ANIMATED TABS ============ */
+function initAnimatedTabs() {
+  const nav = document.getElementById('main-atabs-nav');
+  const scene = document.getElementById('main-atabs-scene');
+  if (!nav || !scene) return;
+
+  const btns = [...nav.querySelectorAll('.atab-btn')];
+  const panels = [...scene.querySelectorAll('.atab-panel')];
+  let activeIdx = 0;
+
+  const STATES = ['active', 'behind-1', 'behind-2', 'hidden'];
+
+  function update() {
+    btns.forEach((btn, i) => {
+      btn.classList.toggle('active', i === activeIdx);
+    });
+    panels.forEach((panel, i) => {
+      // Compute forward distance from activeIdx
+      const diff = (i - activeIdx + panels.length) % panels.length;
+      // Map 0→active, 1→behind-1, 2→behind-2, 3+→hidden
+      panel.dataset.state = STATES[Math.min(diff, 3)];
+    });
+  }
+
+  btns.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      activeIdx = i;
+      update();
+    });
+  });
+
+  update(); // set initial state
+}
+
+initAnimatedTabs();
+
+/* ============ SCROLL PROGRESS BAR ============ */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    progressBar.style.width = scrollPercent + '%';
+  }
+});

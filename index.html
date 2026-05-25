@@ -74,6 +74,7 @@
       </div>
     </div>
   </nav>
+  <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
 
   <!-- Mobile Drawer -->
   <div class="drawer" id="drawer">
@@ -112,6 +113,10 @@
             <a href="mailto:abdo-essam@hotmail.com" class="btn-primary">
               <i class="fa-regular fa-envelope"></i> Hire me
             </a>
+            <a href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL"
+               class="btn-download" id="cv-download-btn" aria-label="Download CV">
+              <i class="fa-solid fa-file-arrow-down"></i> <span>Download CV</span>
+            </a>
             <div class="hero-socials">
               <a href="https://github.com/abdo-essam" target="_blank" class="btn-icon" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
@@ -119,12 +124,139 @@
               <a href="https://www.linkedin.com/in/abdo-essam" target="_blank" class="btn-icon" aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin"></i>
               </a>
-              <a href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL" class="btn-icon" aria-label="Resume">
-                <i class="fa-solid fa-file-arrow-down"></i>
-              </a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== MAIN PORTFOLIO TABS ===== -->
+    <section id="overview" class="section reveal">
+      <div class="container">
+        <div class="atabs-wrapper">
+          <div class="atabs-nav" id="main-atabs-nav">
+            <button class="atab-btn active" data-tab="0">
+              <i class="fa-solid fa-mobile-screen"></i> Mobile Dev
+            </button>
+            <button class="atab-btn" data-tab="1">
+              <i class="fa-solid fa-briefcase"></i> Experience
+            </button>
+            <button class="atab-btn" data-tab="2">
+              <i class="fa-solid fa-diagram-project"></i> Projects
+            </button>
+          </div>
+
+          <div class="atabs-scene" id="main-atabs-scene">
+
+            <!-- Panel 0: Mobile Dev -->
+            <div class="atab-panel" data-state="active">
+              <div class="atab-panel-inner atab-panel-dark">
+                <p class="atab-panel-label">What I build</p>
+                <h3 class="atab-panel-heading">High-Performance Mobile Apps</h3>
+                <p class="atab-panel-desc">I craft native Android apps in Kotlin and cross-platform apps with Flutter — clean architecture, smooth UX, and production-ready quality.</p>
+                <div class="atab-feature-grid">
+                  <div class="atab-feature">
+                    <span class="atab-feature-icon">⚡</span>
+                    <div>
+                      <strong>Android Native</strong>
+                      <p>Kotlin, Jetpack Compose, MVVM</p>
+                    </div>
+                  </div>
+                  <div class="atab-feature">
+                    <span class="atab-feature-icon">🎯</span>
+                    <div>
+                      <strong>Flutter</strong>
+                      <p>Dart, Bloc/Cubit, Clean Arch</p>
+                    </div>
+                  </div>
+                  <div class="atab-feature">
+                    <span class="atab-feature-icon">🔥</span>
+                    <div>
+                      <strong>Backend & Cloud</strong>
+                      <p>Firebase, REST APIs, Node.js</p>
+                    </div>
+                  </div>
+                  <div class="atab-feature">
+                    <span class="atab-feature-icon">🚀</span>
+                    <div>
+                      <strong>Publishing</strong>
+                      <p>Google Play store deployment</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 1: Experience -->
+            <div class="atab-panel" data-state="behind-1">
+              <div class="atab-panel-inner atab-panel-dark">
+                <p class="atab-panel-label">Where I've worked</p>
+                <h3 class="atab-panel-heading">Experience</h3>
+                <div class="timeline atab-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <span class="timeline-date">Dec 2024 – Present</span>
+                      <h4>Android Developer · Nile United</h4>
+                      <p>Building production Android apps with Kotlin &amp; Jetpack.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <span class="timeline-date">Feb 2025 – Present</span>
+                      <h4>Flutter Instructor · EUI</h4>
+                      <p>Teaching Flutter development at Egypt University of Informatics.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <span class="timeline-date">2022 – 2024</span>
+                      <h4>B.Sc. Computer Science · Cairo University</h4>
+                      <p>Faculty of Computers &amp; Artificial Intelligence.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Projects -->
+            <div class="atab-panel" data-state="behind-2">
+              <div class="atab-panel-inner atab-panel-dark">
+                <p class="atab-panel-label">What I've shipped</p>
+                <h3 class="atab-panel-heading">Latest Projects</h3>
+                <div class="atab-projects-list">
+                  <div class="atab-project-row">
+                    <span class="atab-project-num">01</span>
+                    <div>
+                      <strong>E-Commerce App</strong>
+                      <p>Full-featured Android shopping app with Kotlin, Retrofit &amp; Firebase.</p>
+                    </div>
+                    <a href="#projects" class="atab-project-link"><i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                  <div class="atab-project-row">
+                    <span class="atab-project-num">02</span>
+                    <div>
+                      <strong>Chat App</strong>
+                      <p>Real-time messaging with Flutter, Firebase &amp; Bloc state management.</p>
+                    </div>
+                    <a href="#projects" class="atab-project-link"><i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                  <div class="atab-project-row">
+                    <span class="atab-project-num">03</span>
+                    <div>
+                      <strong>News App</strong>
+                      <p>Flutter app with REST API, Clean Architecture &amp; offline caching.</p>
+                    </div>
+                    <a href="#projects" class="atab-project-link"><i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /main-atabs-scene -->
+        </div><!-- /atabs-wrapper -->
       </div>
     </section>
 
@@ -245,14 +377,12 @@
               <span class="chip">MVVM</span>
               <span class="chip">Clean Architecture</span>
               <span class="chip">Git</span>
-              <span class="chip">AWS</span>
+              <span class="chip">Docker</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ===== TECH STACK ===== -->
+    </section>    <!-- ===== TECH STACK ===== -->
     <section id="tech" class="section reveal">
       <div class="container">
         <h2 class="section-title">Technology Stack</h2>
