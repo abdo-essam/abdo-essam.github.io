@@ -44,6 +44,30 @@ ul { list-style: none; }
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 3rem; }
+
+/* Magic UI Highlighter — underline action */
+.highlight-underline {
+  position: relative;
+  display: inline;
+  white-space: nowrap;
+}
+.highlight-underline::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  bottom: -0.35em; /* Lowered to prevent overlap with descenders like 'y' and 'p' */
+  width: 104%;
+  height: 0.45em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C30 3 60 10 90 6 C120 2 150 10 180 5 C190 3 196 7 200 6' stroke='%23f97316' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.85s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+  pointer-events: none;
+}
+.highlight-underline.animate::after {
+  background-size: 104% 100%;
+}
+
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
 .section-header .section-title { margin-bottom: 0; }
 .w-full { width: 100%; }
@@ -702,6 +726,7 @@ ul { list-style: none; }
 .footer-nav { display: flex; gap: 1.25rem; font-size: 1.1rem; color: var(--muted-fg); }
 .footer-nav a:hover { color: var(--fg); }
 .footer-copy { text-align: center; font-size: .75rem; color: var(--muted-fg); padding-bottom: .75rem; }
+
 
 /* ============ SCROLL TOP ============ */
 .scroll-top {

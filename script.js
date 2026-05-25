@@ -237,3 +237,24 @@ function initStatefulDownload() {
 }
 
 initStatefulDownload();
+
+
+/* ============ HIGHLIGHT UNDERLINE ============ */
+function initHighlightUnderline() {
+  const els = document.querySelectorAll('.highlight-underline');
+  if (!els.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Small delay so the section reveal animation finishes first
+        setTimeout(() => entry.target.classList.add('animate'), 150);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  els.forEach(el => observer.observe(el));
+}
+
+initHighlightUnderline();
