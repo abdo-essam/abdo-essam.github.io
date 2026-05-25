@@ -1,260 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelrahman Essam</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/95e4c26e1d.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdelrahman Essam | Mobile App Developer</title>
+  <meta name="description" content="Abdelrahman Essam - Mobile App Developer specializing in Android Native (Kotlin) and Flutter cross-platform development." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/95e4c26e1d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- --------header----------- -->
-    <header class="header">
-        <a href="" class="logo"><span>Abdelrahman</span> Essam</a>
-
-        <nav class="nav-bar">
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact Me</a>
-            <a class="down-btn" title="Download my resume"
-                href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL">
-                Resume
-                <i class="fa-solid fa-download"></i>
-            </a>
-        </nav>
-
-        <div class="menu-icon" id="menu-icon" onclick="openMenu()">
-            <i class="fa-solid fa-bars"></i>
+  <!-- ===== CONTACT MODAL ===== -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h2>Get In Touch</h2>
+      <p class="modal-sub">Have a project in mind? Let's talk.</p>
+      <form class="contact-form" id="contact-form" action="mailto:abdo-essam@hotmail.com" method="post">
+        <div class="form-group">
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" name="name" placeholder="Your name" required />
         </div>
-    </header>
-
-    <!-- --------side menu for small screens----------- -->
-    <nav class="side-menu" id="side-menu">
-        <div class="close-btn" id="close-btn" onclick="closeMenu()">
-            <i class="fa-solid fa-xmark"></i>
+        <div class="form-group">
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" name="email" placeholder="your@email.com" required />
         </div>
-
-        <a href="#home" onclick="closeMenu()">Home</a>
-        <a href="#about" onclick="closeMenu()">About Me</a>
-        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
-        <a href="#contact" onclick="closeMenu()">Contact Me</a>
-        <a class="down-btn" title="Download my resume" onclick="closeMenu()"
-            href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL">
-            Resume
-            <i class="fa-solid fa-download"></i>
-        </a>
-    </nav>
-
-    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
-
-
-
-    <!-- --------home----------- -->
-    <section id="home">
-        <div class="container">
-            <div class="home-text">
-                <h1>Hi, I'm<br><span>Abdelrahman Essam</span></h1>
-                <p>Mobile App Developer with expertise in Flutter and Android Native Development, possessing a solid foundation in software engineering principles. Skilled in developing high-performing mobile applications, with hands-on experience in cross-platform development, state management, database integration, and RESTful APIs.</p>
-                <div class="social-icons">
-                    <a target="_blank" title="Send an email" href="mailto:abdo-essam@hotmail.com"><i
-                            class="fa-regular fa-envelope"></i></a>
-                    <a target="_blank" title="Linkedin" href="https://www.linkedin.com/in/abdo-essam"><i
-                            class="fa-brands fa-linkedin"></i></a>
-                    <a target="_blank" title="GitHub" href="https://github.com/abdo-essam"><i
-                            class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-
-            <a href="#portfolio" class="btn cta-btn">
-                Discover My Projects<i class="fa-solid fa-angle-down"></i>
-            </a>
-
-            <div class="stars"></div>
+        <div class="form-group">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
         </div>
-    </section>
-
-
-
-    <!-- --------about----------- -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-col-1">
-                    <img src="images/user.jpg">
-                </div>
-
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>I am a dedicated and detail-oriented Native Android Developer with over 2 years of experience
-                        in Kotlin and crafting mobile applications, seeking opportunities to contribute and develop
-                        innovative applications with my problem-solving skills, passion, and commitment to deliver
-                        user-friendly software solutions.</p>
-
-                    <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
-                    </div>
-
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Programming Languages</span><br>Kotlin, Java, C++, Dart, Python</li>
-                            <li><span>Mobile Development</span><br>Flutter, Jetpack Compose, Coroutines, Retrofit, Bloc, Cubit, Paging3, Hilt</li>
-                            <li><span>Architecture & Tools</span><br>MVVM, SOLID, Clean Architecture, Git, Android Studio, Firebase</li>
-                            <li><span>Cloud & Databases</span><br>AWS (S3, CloudFormation, EC2, RDS), MySQL, Room, SQLite</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>Dec 2024 - Present</span><br>Android Developer at Nile United</li>
-                            <li><span>Feb 2025 - Present</span><br>Flutter Instructor at Egypt University of Informatics (EUI)</li>
-                            <li><span>Dec 2024 - Present</span><br>Flutter Development Bootcamp - Sprints & U.S. Embassy</li>
-                            <li><span>Sep 2024 - Dec 2024</span><br>Flutter Development Bootcamp - Learn IT & Career 180</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>Sep 2018 - Jun 2022</span><br>Cairo University<br>Faculty of Computers and Artificial Intelligence</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- --------portfolio----------- -->
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h1 class="sub-title">My Work</h1>
-
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/projects/Ecommerce.png">
-                    <div class="layer">
-                        <h3>Fruits App</h3>
-                        <p>Ecommerce UI Fruits Flutter App.</p>
-                        <a target="_blank" href="https://github.com/abdo-essam/EcommerceUiFruitsApp"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/projects/tourist-guide.png">
-                    <div class="layer">
-                        <h3>Tourist Guide App</h3>
-                        <p>A comprehensive digital guide for exploring Egypt's attractions with Google Maps integration and Firebase authentication.</p>
-                        <a target="_blank" href="https://github.com/abdo-essam/Tourist-Guide-App-For-Egypt"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/Quiz.png">
-                    <div class="layer">
-                        <h3>Cloud Quizzer</h3>
-                        <p>Cloud Quizzer is a Flutter App designed to help users prepare for the cloud exams.
-                        </p>
-                        <a target="_blank" href="https://github.com/abdo-essam/Cloud_Quizzer_App"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/Notes.png">
-                    <div class="layer">
-                        <h3>Notes App</h3>
-                        <p>Notes is a nimble note-taking application crafted using Kotlin and Android Architecture Components.</p>
-                        <a target="_blank"
-                            href="https://github.com/abdo-essam/Notes"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/Wallpapers.png">
-                    <div class="layer">
-                        <h3>Wallpapers App</h3>
-                        <p>It&apos;s an application built purely with Kotlin and Android Architecture Components.</p>
-                        <a target="_blank"
-                            href="https://github.com/abdo-essam/Wallpapers"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/Calculator.png">
-                    <div class="layer">
-                        <h3>Calculator App</h3>
-                        <p>Simple Android Native App.</p>
-                        <a target="_blank" href="https://github.com/abdo-essam/CalculatorApp"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/stopwatch.jpg">
-                    <div class="layer">
-                        <h3>StopWatch App</h3>
-                        <p>Simple Android Native App using Jetpack Compose.</p>
-                        <a target="_blank" href="https://github.com/abdo-essam/StopwatchApp"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="images/projects/todolist.jpg">
-                    <div class="layer">
-                        <h3>TODO List App</h3>
-                        <p>Simple Android Native App.</p>
-                        <a target="_blank" href="https://github.com/abdo-essam/ToDoListApp"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="btn-container">
-                <button class="btn see-more">See More<i class="fa-solid fa-plus"></i></button>
-            </div>
-        </div>
-    </section>
-    
-
-
-<!-- --------contact----------- -->
-<section id="contact" class="section">
-    <div class="container">
-        <h1 class="sub-title">Contact Me</h1>
-
-        <div class="contact-info">
-            <p><i class="fa-regular fa-envelope"></i> Email: <a href="mailto:abdo-essam@hotmail.com">abdo-essam@hotmail.com</a></p>
-            <p><i class="fa-brands fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/abdo-essam" target="_blank">linkedin.com/in/abdo-essam</a></p>
-            <p><i class="fa-solid fa-phone"></i> Phone: <a href="tel:+201001076035">+20 1001076035</a></p>
-            <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/abdo-essam" target="_blank">github.com/abdo-essam</a></p>
-        </div>
+        <button type="submit" class="btn-primary w-full">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+      <div class="modal-links">
+        <a href="mailto:abdo-essam@hotmail.com"><i class="fa-regular fa-envelope"></i> abdo-essam@hotmail.com</a>
+        <a href="tel:+201001076035"><i class="fa-solid fa-phone"></i> +20 100 107 6035</a>
+      </div>
     </div>
-</section>
+  </div>
 
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
+      <div class="nav-brand-links">
+        <a href="#about" class="nav-logo">
+          <span class="gradient-text">Abdelrahman</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#tech">Stack</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+        </div>
+      </div>
 
+      <div class="nav-actions">
+        <button class="btn-shiny" id="open-modal">Contact</button>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Mobile Drawer -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-head">
+      <span class="gradient-text nav-logo">Abdelrahman</span>
+      <button class="drawer-close" id="drawer-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#services" class="drawer-link">Services</a>
+    <a href="#tech" class="drawer-link">Stack</a>
+    <a href="#projects" class="drawer-link">Projects</a>
+    <a href="#experience" class="drawer-link">Experience</a>
+    <button class="btn-primary w-full mt-auto" onclick="openModal();closeDrawer();">Contact Me</button>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
 
-    <!-- --------copy right----------- -->
-    <footer>
-        <p class="copyright">Copyright &copy; <a href="https://www.linkedin.com/in/abdosharaf" target="_blank">Abdo
-                Essam</a> 2025. All Rights Reserved.</p>
-    </footer>
+  <main>
+    <canvas id="particles" class="particles-canvas"></canvas>
 
+    <!-- ===== HERO / ABOUT ===== -->
+    <section id="about" class="hero-section">
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <span class="badge-pulse"></span> Available for work
+          </div>
+          <h1 class="hero-title">
+            Mobile App Developer<br />
+            <span class="gradient-text">Android &amp; Flutter</span>
+          </h1>
+          <p class="hero-desc">
+            Mobile App Developer crafting high-performance, user-friendly applications
+            using Android Native (Kotlin) and Flutter. Passionate about clean architecture,
+            great UX, and solving real-world problems through code.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:abdo-essam@hotmail.com" class="btn-primary">
+              <i class="fa-regular fa-envelope"></i> Hire me
+            </a>
+            <div class="hero-socials">
+              <a href="https://github.com/abdo-essam" target="_blank" class="btn-icon" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/abdo-essam" target="_blank" class="btn-icon" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://drive.google.com/uc?export=download&id=19yWJP1OzNKC2YWscYecacFlueU26MtZL" class="btn-icon" aria-label="Resume">
+                <i class="fa-solid fa-file-arrow-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== SERVICES / BENTO ===== -->
+    <section id="services" class="section reveal">
+      <div class="container">
+        <div class="bento-grid">
+          <!-- Card 1 -->
+          <div class="bento-card" id="bento-1">
+            <div class="bento-animated-bg" id="anim-list"></div>
+            <div class="bento-body">
+              <h3>Mobile Development</h3>
+              <p>Building high-performance native Android apps and cross-platform Flutter applications for iOS &amp; Android.</p>
+              <span class="bento-cta">Learn more →</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="bento-card" id="bento-2">
+            <div class="bento-animated-bg marquee-bg" id="marquee-bg"></div>
+            <div class="bento-body">
+              <h3>Clean Architecture</h3>
+              <p>Writing maintainable, efficient code following MVVM, Clean Architecture, and SOLID principles.</p>
+              <span class="bento-cta">Learn more →</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="bento-card" id="bento-3">
+            <div class="bento-animated-bg orbit-bg" id="orbit-bg">
+              <div class="orbit-ring ring-1"><span class="orbit-icon">⚡</span></div>
+              <div class="orbit-ring ring-2"><span class="orbit-icon">🎨</span></div>
+              <div class="orbit-ring ring-3"><span class="orbit-icon">🚀</span></div>
+              <div class="orbit-center">📱</div>
+            </div>
+            <div class="bento-body">
+              <h3>Performance &amp; UX</h3>
+              <p>Optimizing app performance, smooth animations, and responsive UI that users love.</p>
+              <span class="bento-cta">Learn more →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- --------scripts----------- -->
-    <script src="script.js"></script>
+    <!-- ===== TECH STACK ===== -->
+    <section id="tech" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Technology Stack</h2>
+      </div>
+      <div class="marquee-wrapper">
+        <div class="marquee-fade-l"></div>
+        <div class="marquee-fade-r"></div>
+        <div class="marquee-row" id="tech-row-1">
+          <div class="marquee-track">
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/android/3DDC84" alt="Android" /><span>Android</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/kotlin/7F52FF" alt="Kotlin" /><span>Kotlin</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter" /><span>Flutter</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/dart/0175C2" alt="Dart" /><span>Dart</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase" /><span>Firebase</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/jetpackcompose/4285F4" alt="Jetpack Compose" /><span>Compose</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/java/007396" alt="Java" /><span>Java</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" /><span>Python</span></div>
+          </div>
+          <div class="marquee-track" aria-hidden="true">
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/android/3DDC84" alt="Android" /><span>Android</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/kotlin/7F52FF" alt="Kotlin" /><span>Kotlin</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter" /><span>Flutter</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/dart/0175C2" alt="Dart" /><span>Dart</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase" /><span>Firebase</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/jetpackcompose/4285F4" alt="Jetpack Compose" /><span>Compose</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/java/007396" alt="Java" /><span>Java</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" /><span>Python</span></div>
+          </div>
+        </div>
+        <div class="marquee-row marquee-reverse" id="tech-row-2">
+          <div class="marquee-track">
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git" /><span>Git</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" /><span>GitHub</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/androidstudio/3DDC84" alt="Android Studio" /><span>Android Studio</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS" /><span>AWS</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite" /><span>SQLite</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman" /><span>Postman</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" /><span>Figma</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/googleplay/414141" alt="Google Play" /><span>Google Play</span></div>
+          </div>
+          <div class="marquee-track" aria-hidden="true">
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git" /><span>Git</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" /><span>GitHub</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/androidstudio/3DDC84" alt="Android Studio" /><span>Android Studio</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS" /><span>AWS</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite" /><span>SQLite</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman" /><span>Postman</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" /><span>Figma</span></div>
+            <div class="tech-item"><img src="https://cdn.simpleicons.org/googleplay/414141" alt="Google Play" /><span>Google Play</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Projects</h2>
+          <a href="https://github.com/abdo-essam" target="_blank" class="btn-outline">
+            All Projects <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="projects-list">
+          <!-- Project 1 -->
+          <div class="project-item reveal">
+            <div class="project-media">
+              <img src="images/projects/tourist-guide.png" alt="Tourist Guide App" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <div class="project-emoji">🗺️</div>
+              <h3>Tourist Guide App</h3>
+              <p>A comprehensive digital guide for exploring Egypt's attractions with real-time data, maps, and authentication.</p>
+              <ul class="project-features">
+                <li><span>✨</span> Google Maps integration for location-based attractions</li>
+                <li><span>✨</span> Firebase authentication &amp; real-time database</li>
+                <li><span>✨</span> Offline support with local caching</li>
+                <li><span>✨</span> Multi-language support (Arabic &amp; English)</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Firebase</span><span class="tag">Google Maps</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/abdo-essam/Tourist-Guide-App-For-Egypt" target="_blank" class="btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-item project-item--reverse reveal">
+            <div class="project-media">
+              <img src="images/projects/Ecommerce.png" alt="Fruits App" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <div class="project-emoji">🛍️</div>
+              <h3>Fruits E-Commerce App</h3>
+              <p>A beautiful Flutter e-commerce UI app for ordering fresh fruits with smooth animations and clean UX.</p>
+              <ul class="project-features">
+                <li><span>✨</span> Modern UI with Flutter &amp; custom animations</li>
+                <li><span>✨</span> Bloc state management for predictable state</li>
+                <li><span>✨</span> Product catalog with cart &amp; checkout flow</li>
+                <li><span>✨</span> Responsive for phones &amp; tablets</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Bloc</span><span class="tag">UI/UX</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/abdo-essam/EcommerceUiFruitsApp" target="_blank" class="btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-item reveal">
+            <div class="project-media">
+              <img src="images/projects/Quiz.png" alt="Cloud Quizzer" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <div class="project-emoji">☁️</div>
+              <h3>Cloud Quizzer</h3>
+              <p>A Flutter app designed to help users prepare for cloud certification exams with smart quiz engine.</p>
+              <ul class="project-features">
+                <li><span>✨</span> Categorized quizzes for AWS, Azure &amp; GCP</li>
+                <li><span>✨</span> Score tracking &amp; progress analytics</li>
+                <li><span>✨</span> Offline-first with local data persistence</li>
+                <li><span>✨</span> Clean Architecture + MVVM pattern</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">SQLite</span><span class="tag">MVVM</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/abdo-essam/Cloud_Quizzer_App" target="_blank" class="btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-item project-item--reverse reveal">
+            <div class="project-media">
+              <img src="images/projects/Notes.png" alt="Notes App" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <div class="project-emoji">📝</div>
+              <h3>Notes App</h3>
+              <p>A nimble note-taking application built with Kotlin and Android Architecture Components.</p>
+              <ul class="project-features">
+                <li><span>✨</span> Room database for persistent local storage</li>
+                <li><span>✨</span> ViewModel + LiveData architecture</li>
+                <li><span>✨</span> Search, filter and sort functionality</li>
+                <li><span>✨</span> Material Design 3 UI components</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Room</span><span class="tag">MVVM</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/abdo-essam/Notes" target="_blank" class="btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Experience &amp; Education</h2>
+        <div class="exp-grid">
+          <div class="exp-col">
+            <h3 class="exp-col-title"><i class="fa-solid fa-briefcase"></i> Work</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">Dec 2024 – Present</span>
+                  <h4>Android Developer</h4>
+                  <p>Nile United</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">Feb 2025 – Present</span>
+                  <h4>Flutter Instructor</h4>
+                  <p>Egypt University of Informatics (EUI)</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">Dec 2024 – Present</span>
+                  <h4>Flutter Development Bootcamp</h4>
+                  <p>Sprints &amp; U.S. Embassy</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">Sep 2024 – Dec 2024</span>
+                  <h4>Flutter Development Bootcamp</h4>
+                  <p>Learn IT &amp; Career 180</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-col">
+            <h3 class="exp-col-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">Sep 2018 – Jun 2022</span>
+                  <h4>B.Sc. Computer Science</h4>
+                  <p>Cairo University<br />Faculty of Computers &amp; Artificial Intelligence</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="exp-col-title mt-8"><i class="fa-solid fa-star"></i> Skills</h3>
+            <div class="skills-chips">
+              <span class="chip">Kotlin</span>
+              <span class="chip">Flutter</span>
+              <span class="chip">Jetpack Compose</span>
+              <span class="chip">Coroutines</span>
+              <span class="chip">Retrofit</span>
+              <span class="chip">Hilt / Dagger</span>
+              <span class="chip">Bloc / Cubit</span>
+              <span class="chip">Room DB</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">MVVM</span>
+              <span class="chip">Clean Architecture</span>
+              <span class="chip">Git</span>
+              <span class="chip">AWS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <button class="interactive-btn" id="footer-contact">
+        <span>Get In Touch</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <nav class="footer-nav">
+        <a href="https://github.com/abdo-essam" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/abdo-essam" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:abdo-essam@hotmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2025 Abdelrahman Essam. All Rights Reserved.</p>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

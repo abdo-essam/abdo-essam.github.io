@@ -1,154 +1,161 @@
-// Change header background
-window.addEventListener('scroll', function () {
-    const header = document.querySelector(".header");
-    if (window.scrollY >= 30) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
+/* ============ THEME ============ */
+const root = document.documentElement;
+const themeBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
 
+function getTheme() { return localStorage.getItem('theme') || 'light'; }
+function applyTheme(t) {
+  root.setAttribute('data-theme', t);
+  themeIcon.className = t === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  localStorage.setItem('theme', t);
+}
+applyTheme(getTheme());
+themeBtn.addEventListener('click', () => applyTheme(getTheme() === 'dark' ? 'light' : 'dark'));
 
-// Side menu
-function openMenu() {
-    document.getElementById('side-menu').classList.add('open');
-    document.getElementById('overlay').classList.add('show');
-    document.body.style.overflow = 'hidden';
+/* ============ PARTICLES ============ */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resize() {
+  const hero = document.querySelector('.hero-section');
+  canvas.width = hero.offsetWidth;
+  canvas.height = hero.offsetHeight;
 }
 
-function closeMenu() {
-    document.getElementById('side-menu').classList.remove('open');
-    document.getElementById('overlay').classList.remove('show');
-    document.body.style.overflow = '';
+function createParticle() {
+  return { x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.5 + .5, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3, o: Math.random() * .5 + .1 };
 }
 
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        closeMenu();
-    }
-});
+function initParticles() { particles = Array.from({ length: 150 }, createParticle); }
 
-
-// Create animated stars
-setInterval(createStar, 100);
-
-function createStar() {
-    const star = document.createElement('div');
-    star.classList.add('star');
-
-    const size = Math.random() * 2 + 1;
-    const leftPosition = Math.random() * 100;
-    const fallDuration = Math.random() * 5 + 3;
-
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-    star.style.left = `${leftPosition}vw`;
-    star.style.animationDuration = `${fallDuration}s`;
-    star.style.opacity = Math.random();
-
-    document.querySelector('.stars').appendChild(star);
-
-    setTimeout(() => { star.remove(); }, fallDuration * 1000);
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const isDark = getTheme() === 'dark';
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = isDark ? `rgba(255,255,255,${p.o})` : `rgba(0,0,0,${p.o})`;
+    ctx.fill();
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(drawParticles);
 }
 
+resize(); initParticles(); drawParticles();
+window.addEventListener('resize', () => { resize(); initParticles(); });
 
-// Change the current tab
-const tabLinks = document.querySelectorAll(".tab-links");
-const tabContents = document.querySelectorAll(".tab-contents");
+/* ============ MOBILE DRAWER ============ */
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawer-overlay');
+const hamburger = document.getElementById('hamburger');
+const drawerClose = document.getElementById('drawer-close');
 
-tabLinks.forEach(tabLink => {
-    tabLink.addEventListener('click', () => {
-        openTab(tabLink.innerHTML.toLowerCase());
+function openDrawer() { drawer.classList.add('open'); drawerOverlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+function closeDrawer() { drawer.classList.remove('open'); drawerOverlay.classList.remove('show'); document.body.style.overflow = ''; }
+
+hamburger.addEventListener('click', openDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+
+drawer.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDrawer(); closeModal(); } });
+
+/* ============ CONTACT MODAL ============ */
+const modal = document.getElementById('contact-modal');
+const openModalBtns = document.querySelectorAll('#open-modal, #footer-contact');
+const modalClose = document.getElementById('modal-close');
+
+function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+openModalBtns.forEach(b => b.addEventListener('click', openModal));
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+/* ============ BENTO CARD 1: ANIMATED LIST ============ */
+const services = [
+  { title: 'Android Native', desc: 'High-performance apps with Kotlin & Jetpack' },
+  { title: 'Flutter Apps', desc: 'Cross-platform iOS & Android from one codebase' },
+  { title: 'REST API Integration', desc: 'Retrofit, OkHttp, and async data fetching' },
+  { title: 'Firebase Services', desc: 'Auth, Firestore, Cloud Messaging & more' },
+  { title: 'UI/UX Implementation', desc: 'Material Design 3 & custom animations' },
+  { title: 'State Management', desc: 'ViewModel, Bloc, Cubit & clean state flows' },
+  { title: 'App Publishing', desc: 'Google Play store deployment & maintenance' },
+];
+
+function buildAnimList() {
+  const container = document.getElementById('anim-list');
+  // Duplicate for seamless loop
+  const items = [...services, ...services];
+  const wrap = document.createElement('div');
+  wrap.className = 'anim-list-container';
+  items.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'anim-list-item';
+    el.innerHTML = `<strong>${s.title}</strong><span>${s.desc}</span>`;
+    wrap.appendChild(el);
+  });
+  container.appendChild(wrap);
+}
+buildAnimList();
+
+/* ============ BENTO CARD 2: MARQUEE ROWS ============ */
+const practices = [
+  'Single Responsibility', 'Open/Closed Principle', 'Dependency Injection',
+  'Repository Pattern', 'Clean Architecture', 'MVVM Pattern',
+  'Unit Testing', 'Code Reviews', 'Liskov Substitution', 'SOLID Principles',
+];
+
+function buildMarqueeBg() {
+  const container = document.getElementById('marquee-bg');
+  for (let i = 0; i < 4; i++) {
+    const row = document.createElement('div');
+    row.className = 'bento-marquee-row' + (i % 2 === 1 ? ' rev' : '');
+    // Duplicate items for seamless loop
+    [...practices, ...practices].forEach(p => {
+      const el = document.createElement('span');
+      el.className = 'bento-marquee-item';
+      el.textContent = p;
+      row.appendChild(el);
     });
-});
-
-function openTab(tabName) {
-    tabLinks.forEach(tabLink => {
-        tabLink.classList.remove("active-link")
-    });
-
-    tabContents.forEach(tabContent => {
-        tabContent.classList.remove("active-tab")
-    });
-
-    event.currentTarget.classList.add("active-link")
-    document.getElementById(tabName).classList.add("active-tab")
+    container.appendChild(row);
+  }
 }
+buildMarqueeBg();
 
+/* ============ SCROLL TOP ============ */
+const scrollTopBtn = document.getElementById('scroll-top');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// See more projects button
-const projects = document.querySelectorAll(".work")
-const seeMoreBtn = document.querySelector(".see-more")
+/* ============ REVEAL ON SCROLL ============ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
 
-const breakpoints = {
-    mobile: { width: 470, items: 1 },
-    tablet: { width: 768, items: 2 },
-    medium: { width: 1200, items: 3 }
-};
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-let itemsToShow = getItemsToShow();
-let visibleCount = itemsToShow;
+/* ============ ACTIVE NAV LINK ============ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-window.addEventListener('resize', () => {
-    itemsToShow = getItemsToShow();
-    closeMenu();
-})
-
-projects.forEach((project, index) => {
-    if (index >= itemsToShow) {
-        project.classList.add('hidden');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.style.color = '');
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.style.color = 'var(--fg)';
     }
-});
+  });
+}, { threshold: 0.4 });
 
-updateSeeMoreButtonVisibility();
-
-seeMoreBtn.addEventListener('click', () => {
-    const hiddenCards = document.querySelectorAll(".work.hidden");
-    const newAddedNumber = itemsToShow - (visibleCount % itemsToShow);
-
-    for (let i = 0; i < newAddedNumber && i < hiddenCards.length; i++) {
-        hiddenCards[i].classList.remove('hidden');
-    }
-
-    visibleCount += newAddedNumber;
-    updateSeeMoreButtonVisibility();
-})
-
-function getItemsToShow() {
-    return Object.values(breakpoints).find(b => window.innerWidth <= b.width)?.items || 4;
-}
-
-function updateSeeMoreButtonVisibility() {
-    seeMoreBtn.classList.toggle("hidden", visibleCount >= projects.length);
-}
-
-// Animating all sections
-let observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.2
-});
-
-
-document.querySelectorAll(".section").forEach(section => {
-    observer.observe(section);
-});
-
-const scrollBtn = document.querySelector(".scroll-top");
-
-window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 100) {
-        scrollBtn.classList.add("show");
-    } else {
-        scrollBtn.classList.remove("show");
-    }
-});
-
-scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+sections.forEach(s => navObserver.observe(s));
