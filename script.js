@@ -206,3 +206,34 @@ window.addEventListener('scroll', () => {
     progressBar.style.width = scrollPercent + '%';
   }
 });
+
+/* ============ STATEFUL DOWNLOAD BUTTON ============ */
+function initStatefulDownload() {
+  const btn = document.getElementById('cv-download-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', (e) => {
+    if (btn.classList.contains('state-loading') || btn.classList.contains('state-success')) {
+      e.preventDefault();
+      return;
+    }
+
+    const originalHTML = btn.innerHTML;
+
+    btn.classList.add('state-loading');
+    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Downloading...</span>`;
+
+    setTimeout(() => {
+      btn.classList.remove('state-loading');
+      btn.classList.add('state-success');
+      btn.innerHTML = `<i class="fa-solid fa-check"></i> <span>Done!</span>`;
+
+      setTimeout(() => {
+        btn.classList.remove('state-success');
+        btn.innerHTML = originalHTML;
+      }, 2000);
+    }, 4000);
+  });
+}
+
+initStatefulDownload();

@@ -94,6 +94,23 @@ ul { list-style: none; }
 .btn-download:hover::before { opacity: 1; }
 .btn-download i, .btn-download span { position: relative; z-index: 1; }
 .btn-download:hover { color: #fff; border-color: transparent; }
+.btn-download.state-loading {
+  background: var(--muted) !important;
+  border-color: var(--border) !important;
+  color: var(--muted-fg) !important;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.btn-download.state-success {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #fff !important;
+  pointer-events: none;
+}
+.btn-download.state-loading::before,
+.btn-download.state-success::before {
+  opacity: 0 !important;
+}
 
 .btn-icon {
   display: inline-flex; align-items: center; justify-content: center;
