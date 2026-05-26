@@ -86,23 +86,36 @@ ul { list-style: none; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
 
 /* ============ BUTTONS ============ */
-.btn-primary, .btn-google-play {
+.btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
   background: var(--primary); color: var(--primary-fg);
   padding: .6rem 1.4rem; border-radius: var(--radius);
   font-size: .9rem; font-weight: 500;
   transition: opacity .2s, transform .2s;
 }
-.btn-primary:hover, .btn-google-play:hover { opacity: .85; transform: translateY(-1px); }
+.btn-primary:hover { opacity: .85; transform: translateY(-1px); }
+
+/* Google Play button — white bg so colorful icon pops */
+.btn-google-play {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: #fff; color: #3d4043;
+  border: 1px solid #dadce0;
+  padding: .55rem 1.3rem; border-radius: var(--radius);
+  font-size: .9rem; font-weight: 500;
+  transition: background .2s, box-shadow .2s, transform .2s;
+}
+.btn-google-play:hover { background: #f8f9fa; box-shadow: 0 2px 8px rgba(0,0,0,.15); transform: translateY(-1px); }
+[data-theme="dark"] .btn-google-play { background: #2d2d2d; color: #e8eaed; border-color: #5f6368; }
+[data-theme="dark"] .btn-google-play:hover { background: #3c3c3c; }
 
 .btn-outline {
   display: inline-flex; align-items: center; gap: .5rem;
-  border: 1px solid var(--border); color: var(--fg);
+  border: 1px solid var(--border); color: var(--muted-fg);
   padding: .5rem 1.2rem; border-radius: var(--radius);
   font-size: .85rem; font-weight: 500;
-  transition: background .2s;
+  transition: background .2s, color .2s;
 }
-.btn-outline:hover { background: var(--muted); }
+.btn-outline:hover { background: var(--muted); color: var(--fg); }
 
 /* Download CV button */
 .btn-download {
