@@ -77,56 +77,7 @@ openModalBtns.forEach(b => b.addEventListener('click', openModal));
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-/* ============ BENTO CARD 1: ANIMATED LIST ============ */
-const services = [
-  { title: 'Android Native', desc: 'High-performance apps with Kotlin & Jetpack' },
-  { title: 'Flutter Apps', desc: 'Cross-platform iOS & Android from one codebase' },
-  { title: 'REST API Integration', desc: 'Retrofit, OkHttp, and async data fetching' },
-  { title: 'Firebase Services', desc: 'Auth, Firestore, Cloud Messaging & more' },
-  { title: 'UI/UX Implementation', desc: 'Material Design 3 & custom animations' },
-  { title: 'State Management', desc: 'ViewModel, Bloc, Cubit & clean state flows' },
-  { title: 'App Publishing', desc: 'Google Play store deployment & maintenance' },
-];
 
-function buildAnimList() {
-  const container = document.getElementById('anim-list');
-  // Duplicate for seamless loop
-  const items = [...services, ...services];
-  const wrap = document.createElement('div');
-  wrap.className = 'anim-list-container';
-  items.forEach(s => {
-    const el = document.createElement('div');
-    el.className = 'anim-list-item';
-    el.innerHTML = `<strong>${s.title}</strong><span>${s.desc}</span>`;
-    wrap.appendChild(el);
-  });
-  container.appendChild(wrap);
-}
-buildAnimList();
-
-/* ============ BENTO CARD 2: MARQUEE ROWS ============ */
-const practices = [
-  'Single Responsibility', 'Open/Closed Principle', 'Dependency Injection',
-  'Repository Pattern', 'Clean Architecture', 'MVVM Pattern',
-  'Unit Testing', 'Code Reviews', 'Liskov Substitution', 'SOLID Principles',
-];
-
-function buildMarqueeBg() {
-  const container = document.getElementById('marquee-bg');
-  for (let i = 0; i < 4; i++) {
-    const row = document.createElement('div');
-    row.className = 'bento-marquee-row' + (i % 2 === 1 ? ' rev' : '');
-    // Duplicate items for seamless loop
-    [...practices, ...practices].forEach(p => {
-      const el = document.createElement('span');
-      el.className = 'bento-marquee-item';
-      el.textContent = p;
-      row.appendChild(el);
-    });
-    container.appendChild(row);
-  }
-}
-buildMarqueeBg();
 
 /* ============ SCROLL TOP ============ */
 const scrollTopBtn = document.getElementById('scroll-top');
@@ -160,41 +111,7 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => navObserver.observe(s));
 
-/* ============ ANIMATED TABS ============ */
-function initAnimatedTabs() {
-  const nav = document.getElementById('main-atabs-nav');
-  const scene = document.getElementById('main-atabs-scene');
-  if (!nav || !scene) return;
 
-  const btns = [...nav.querySelectorAll('.atab-btn')];
-  const panels = [...scene.querySelectorAll('.atab-panel')];
-  let activeIdx = 0;
-
-  const STATES = ['active', 'behind-1', 'behind-2', 'hidden'];
-
-  function update() {
-    btns.forEach((btn, i) => {
-      btn.classList.toggle('active', i === activeIdx);
-    });
-    panels.forEach((panel, i) => {
-      // Compute forward distance from activeIdx
-      const diff = (i - activeIdx + panels.length) % panels.length;
-      // Map 0→active, 1→behind-1, 2→behind-2, 3+→hidden
-      panel.dataset.state = STATES[Math.min(diff, 3)];
-    });
-  }
-
-  btns.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-      activeIdx = i;
-      update();
-    });
-  });
-
-  update(); // set initial state
-}
-
-initAnimatedTabs();
 
 /* ============ SCROLL PROGRESS BAR ============ */
 window.addEventListener('scroll', () => {
