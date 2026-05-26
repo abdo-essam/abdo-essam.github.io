@@ -405,6 +405,9 @@ ul { list-style: none; }
 .timeline-dot { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--accent-1); background: var(--bg); flex-shrink: 0; margin-top: 4px; }
 .timeline-content h4 { font-size: .95rem; font-weight: 600; }
 .timeline-content p { font-size: .82rem; color: var(--muted-fg); margin-top: .15rem; line-height: 1.5; }
+.timeline-bullets { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.timeline-bullets li { font-size: 0.8rem; line-height: 1.45; color: var(--muted-fg); position: relative; padding-left: 0.85rem; }
+.timeline-bullets li::before { content: "•"; position: absolute; left: 0; color: var(--accent-1); }
 .timeline-date { font-size: .75rem; color: var(--accent-1); font-weight: 500; display: block; margin-bottom: .2rem; }
 
 .skills-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
