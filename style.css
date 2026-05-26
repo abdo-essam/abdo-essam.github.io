@@ -396,7 +396,7 @@ ul { list-style: none; }
 
 
 /* ============ EXPERIENCE (legacy, kept for fallback) ============ */
-.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .exp-col-title { font-size: 1rem; font-weight: 600; color: var(--muted-fg); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
 .timeline { display: flex; flex-direction: column; gap: 0; }
 .timeline-item { display: flex; gap: 1rem; position: relative; padding-bottom: 1.75rem; }
